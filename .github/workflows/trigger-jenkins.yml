@@ -11,5 +11,5 @@ jobs:
         with:
           url: "http://182.76.115.170:8080/"
           user: "gautham71298"
-          token: ${{ secrets.TOKEN }}
+          token: ${{ secrets.JENKINS_TOKEN }}
           job: "Android-Technician-PR-Validator"
