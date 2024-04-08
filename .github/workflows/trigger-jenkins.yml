@@ -6,7 +6,8 @@ jobs:
   trigger-jenkins:
     runs-on: ubuntu-latest
     steps:
-      - name: Run unit tests in Jenkins
+      - name: Run unit tests in Jenkins    
+        uses: appleboy/jenkins-action@v0.0.2    
         with:
           url: "http://182.76.115.170:8080/"
           user: "gautham71298"
