@@ -10,7 +10,7 @@ jobs:
         uses: mickeygoussetorg/trigger-jenkins-job@v1
         with:
           jenkins-server: "http://182.76.115.170:8080"
-          jenkins-username: "gautham71298"
+          jenkins-username: "gautham"
           jenkins-pat: ${{ secrets.JENKINS_TOKEN }}
           jenkins-job: "Android-Technician-PR-Validator"
           poll-time: 10
