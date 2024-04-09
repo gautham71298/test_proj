@@ -6,6 +6,11 @@ on:
       - master
 
 jobs:
+  testing-branch:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Print PR branch name
+        run: echo "$GITHUB_HEAD_REF"
   trigger-jenkins:
     runs-on: ubuntu-latest
     steps:
