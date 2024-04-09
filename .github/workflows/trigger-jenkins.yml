@@ -12,7 +12,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Trigger Jenkins Job with Parameters and Return Result
-        uses: gautham71298/trigger-jenkins-job@v2.0.1
+        uses: gautham71298/trigger-jenkins-job@v2.0.2
         with:
           jenkins-server: ${{ secrets.JENKINS_URL }}
           jenkins-username: "gautham"
