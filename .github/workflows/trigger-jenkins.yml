@@ -1,11 +1,9 @@
 name: PR-Compiling-Check
 
 on:
-  pull_request_target:
-    types: [synchronize, ready_for_review]
   pull_request:
     branches:
-      - develop
+      - master
 
 jobs:
   trigger-jenkins:
