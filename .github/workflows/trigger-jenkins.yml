@@ -1,21 +1,25 @@
-name: Jenkins-Action
+name: PR-Compiling-Check
 
 on:
+  pull_request_target:
+    types: [synchronize, ready_for_review]
   pull_request:
     branches:
-      - master
+      - develop
 
 jobs:
   trigger-jenkins:
     runs-on: ubuntu-latest
-    steps:             
-      - name: Trigger Jenkins Job and Return Result
-        uses: mickeygoussetorg/trigger-jenkins-job@v1
+    steps:
+      - name: Trigger Jenkins Job with Parameters and Return Result
+        uses: gautham71298/trigger-jenkins-job@v2.0.1
         with:
-          jenkins-server: "http://182.76.115.170:8080"
+          jenkins-server: ${{ secrets.JENKINS_URL }}
           jenkins-username: "gautham"
           jenkins-pat: ${{ secrets.JENKINS_TOKEN }}
           jenkins-job: "Android-Technician-PR-Validator"
           poll-time: 10
           timeout-value: 900
           verbose: true
+          jenkins-parameter: "branch=develop"
+          jekins-token: "pr-validator"
