@@ -9,12 +9,11 @@ jobs:
   trigger-jenkins:
     runs-on: ubuntu-latest
     steps:
-      - name: Trigger Jenkins job with parameters
-        uses: geokats7/jenkins_client@v0.2.0
+      - name: "Trigger jenkins job"
+        uses: GoldenspearLLC/build-jenkins-job@master
         with:
-          jenkins_job_name: 'Android-Technician-PR-Validator'
-          jenkins_job_parameters: '{"branch": "develop"}'
-          jenkins_base_url: ${{ secrets.JENKINS_URL }}
-          jenkins_user: 'gautham'
-          jenkins_password: ${{ secrets.JENKINS_TOKEN }}
-          wait_for_result: 'true'
+          jenkins-url: ${{ secrets.JENKINS_URL }}
+          jenkins-token: ${{ secrets.JENKINS_TOKEN }}
+          user: "gautham"
+          job-path: "Android-Technician-PR-Validator"
+          job-params: "{'branch': 'develop'}"
