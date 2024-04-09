@@ -1,15 +1,21 @@
 name: Jenkins-Action
 
-on: [push]
+on:
+  pull_request:
+    branches:
+      - master
 
 jobs:
   trigger-jenkins:
     runs-on: ubuntu-latest
-    steps:
-      - name: Run unit tests in Jenkins    
-        uses: appleboy/jenkins-action@v0.0.2    
+    steps:             
+      - name: Trigger Jenkins Job and Return Result
+        uses: mickeygoussetorg/trigger-jenkins-job@v1
         with:
-          url: "http://182.76.115.170:8080/"
-          user: "gautham71298"
-          token: ${{ secrets.TOKEN }}
-          job: "Android-Technician-PR-Validator"
+          jenkins-server: "http://182.76.115.170:8080"
+          jenkins-username: "gautham"
+          jenkins-pat: ${{ secrets.JENKINS_TOKEN }}
+          jenkins-job: "Android-Technician-PR-Validator"
+          poll-time: 10
+          timeout-value: 900
+          verbose: true
