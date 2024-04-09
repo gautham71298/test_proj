@@ -9,11 +9,14 @@ jobs:
   trigger-jenkins:
     runs-on: ubuntu-latest
     steps:
-      - name: "Trigger jenkins job"
-        uses: GoldenspearLLC/build-jenkins-job@master
+      - id: triggerjenkinsjob
+        uses: TechMindsDev/trigger-jenkins-and-return-result@main
         with:
-          jenkins-url: ${{ secrets.JENKINS_URL }}
-          jenkins-token: ${{ secrets.JENKINS_TOKEN }}
-          user: "gautham"
-          job-path: "Android-Technician-PR-Validator"
-          job-params: "{'branch': 'develop'}"
+          jenkins-server: ${{ secrets.JENKINS_URL }}
+          jenkins-username: "gautham"
+          job-params: "branch=develop"
+          jenkins-pat: ${{ secrets.JENKINS_TOKEN }}
+          jenkins-job: "Android-Technician-PR-Validator"
+          poll-time: 10
+          timeout-value: 900
+          verbose: true
