@@ -9,8 +9,8 @@ jobs:
   trigger-jenkins:
     runs-on: ubuntu-latest
     steps:
-      - id: triggerjenkinsjob
-        uses: TechMindsDev/trigger-jenkins-and-return-result@main
+      - name: Trigger Jenkins Job with params and Return Result
+        uses: TechMindsDev/trigger-jenkins-and-return-result@v1
         with:
           jenkins-server: ${{ secrets.JENKINS_URL }}
           jenkins-username: "gautham"
