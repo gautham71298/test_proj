@@ -9,15 +9,12 @@ jobs:
   trigger-jenkins:
     runs-on: ubuntu-latest
     steps:
-      - name: Trigger Jenkins Job with Parameters and Return Result
-        uses: gautham71298/trigger-jenkins-job@v2.0.3
+      - name: Trigger Jenkins job with parameters
+        uses: geokats7/jenkins_client@v0.2.0
         with:
-          jenkins-server: ${{ secrets.JENKINS_URL }}
-          jenkins-username: "gautham"
-          jenkins-pat: ${{ secrets.JENKINS_TOKEN }}
-          jenkins-job: "Android-Technician-PR-Validator"
-          poll-time: 10
-          timeout-value: 900
-          verbose: true
-          jenkins-parameter: "branch=develop"
-          jekins-token: "pr-validator"
+          jenkins_job_name: 'Android-Technician-PR-Validator'
+          jenkins_job_parameters: '{"branch": "develop"}'
+          jenkins_base_url: ${{ secrets.JENKINS_URL }}
+          jenkins_user: 'gautham'
+          jenkins_password: ${{ secrets.JENKINS_TOKEN }}
+          wait_for_result: 'true'
