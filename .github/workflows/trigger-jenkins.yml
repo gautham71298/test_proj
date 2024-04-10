@@ -1,4 +1,4 @@
-name: PR-Compiling-Check
+name: Jenkins-Action
 
 on:
   pull_request:
@@ -9,14 +9,15 @@ jobs:
   trigger-jenkins:
     runs-on: ubuntu-latest
     steps:
-      - name: Trigger Jenkins Job with params and Return Result
-        uses: TechMindsDev/trigger-jenkins-and-return-result@v1
+      - name: Trigger Jenkins Job with Parameters and Return Result
+        uses: gautham71298/trigger-jenkins-job@v2.0.3
         with:
           jenkins-server: ${{ secrets.JENKINS_URL }}
           jenkins-username: "gautham"
-          job-params: "branch=develop"
           jenkins-pat: ${{ secrets.JENKINS_TOKEN }}
-          jenkins-job: "Android-Technician-PR-Validator"
+          jenkins-job: "Test-Project"
           poll-time: 10
           timeout-value: 900
           verbose: true
+          jenkins-param: branch=main
+          jenkins-job-token: test_proj
